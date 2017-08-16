@@ -1,5 +1,6 @@
 class Cocktail < ApplicationRecord
   has_many :doses
+  validates :names, uniqueness: true, presence: true
 
   def unused_ingredients
     if self.doses.count > 0
